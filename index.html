@@ -732,6 +732,105 @@
 }
 </style>
 
+
+<style id="responsive-ninja-layout-final">
+/* ===== Ajuste final dos ninjas: espaço reservado, sem cobrir conteúdo ===== */
+
+/* PLANILHAS - desktop: ninja no vão central entre gráfico e texto */
+.portfolio .project{
+  position:relative;
+  overflow:hidden;
+}
+.portfolio .project-ninja{
+  top:50% !important;
+  bottom:auto !important;
+  left:50% !important;
+  right:auto !important;
+  width:104px !important;
+  transform:translate(-50%,-50%) !important;
+  animation:none !important;
+}
+.portfolio .project:hover .project-ninja{
+  transform:translate(-50%,-50%) !important;
+}
+
+/* cria um "corredor" limpo no centro para o ninja */
+@media (min-width:761px){
+  .portfolio .project-art{
+    padding-right:82px !important;
+  }
+  .portfolio .project-copy{
+    padding-left:82px !important;
+  }
+}
+
+/* SERVIÇOS - mobile: cria uma faixa vazia entre texto e imagem */
+@media (max-width:760px){
+  .service-slide{
+    position:relative;
+    grid-template-rows:auto 210px !important;
+    row-gap:86px !important;
+  }
+
+  .slide-copy{
+    padding-bottom:24px !important;
+  }
+
+  /* PLANILHAS - mobile: ninja em faixa própria entre painel e descrição */
+  .portfolio .project{
+    display:block !important;
+    background:#0d1828 !important;
+  }
+
+  .portfolio .project-art{
+    padding-right:24px !important;
+    margin-bottom:0 !important;
+  }
+
+  .portfolio .project-copy{
+    margin-top:86px !important;
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+
+  .portfolio .project-ninja{
+    width:86px !important;
+    top:226px !important;
+    left:50% !important;
+    right:auto !important;
+    bottom:auto !important;
+    transform:translateX(-50%) !important;
+  }
+
+  .portfolio .project:hover .project-ninja{
+    transform:translateX(-50%) !important;
+  }
+
+  /* WhatsApp menor para não tampar conteúdo no celular */
+  .floating-whatsapp{
+    min-height:44px !important;
+    padding:9px 13px !important;
+    gap:7px !important;
+    font-size:.74rem !important;
+    right:10px !important;
+    bottom:10px !important;
+  }
+  .floating-whatsapp span{
+    font-size:1rem !important;
+  }
+}
+
+@media (max-width:420px){
+  .portfolio .project-copy{
+    margin-top:78px !important;
+  }
+  .portfolio .project-ninja{
+    width:78px !important;
+    top:211px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -928,6 +1027,71 @@ $('#demo-quote').addEventListener('click',()=>{dialog.close();$('#service').valu
   },true);
 
   setStatus(0);
+})();
+</script>
+
+
+<script id="responsive-service-ninja-final">
+(function(){
+  const viewport = document.getElementById('showcase-window');
+  const ninja = viewport && viewport.querySelector('.presenter-ninja');
+  if(!viewport || !ninja) return;
+
+  function activeSlide(){
+    return viewport.querySelector('.service-slide[aria-hidden="false"]') ||
+           viewport.querySelector('.service-slide');
+  }
+
+  function placeNinja(){
+    if(window.innerWidth > 760){
+      ninja.style.top = '';
+      ninja.style.bottom = '';
+      ninja.style.left = '';
+      ninja.style.right = '';
+      ninja.style.transform = '';
+      return;
+    }
+
+    const slide = activeSlide();
+    const image = slide && slide.querySelector('.slide-image');
+    if(!slide || !image) return;
+
+    const viewportRect = viewport.getBoundingClientRect();
+    const imageRect = image.getBoundingClientRect();
+    const ninjaH = ninja.getBoundingClientRect().height || 83;
+
+    /* centro da faixa vazia criada entre texto e imagem */
+    const top = (imageRect.top - viewportRect.top) - (86 / 2) - (ninjaH / 2);
+
+    ninja.style.top = Math.max(8, top) + 'px';
+    ninja.style.bottom = 'auto';
+    ninja.style.left = '50%';
+    ninja.style.right = 'auto';
+    ninja.style.transform = 'translateX(-50%)';
+  }
+
+  function schedule(){
+    requestAnimationFrame(function(){
+      requestAnimationFrame(placeNinja);
+    });
+  }
+
+  window.addEventListener('resize', schedule, {passive:true});
+  window.addEventListener('load', schedule, {once:true});
+
+  document.querySelectorAll('[data-slide], #slide-prev, #slide-next').forEach(function(el){
+    el.addEventListener('click', function(){
+      setTimeout(schedule, 30);
+      setTimeout(schedule, 450);
+    });
+  });
+
+  if('ResizeObserver' in window){
+    const ro = new ResizeObserver(schedule);
+    ro.observe(viewport);
+  }
+
+  schedule();
 })();
 </script>
 
