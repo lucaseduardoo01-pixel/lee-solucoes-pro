@@ -418,6 +418,123 @@
 @media(max-width:560px){.hero h1{font-size:2.15rem}.hero .eyebrow{font-size:.75rem}.hero .lead{margin-top:15px}.hero .actions{margin-top:18px;gap:14px}.hero-meta{margin-top:16px}.hero-visual{max-width:100%;border-radius:9px}.hero-visual .ninja{max-height:190px}.hero-visual .visual-top{display:none}.hero-visual .visual-foot{padding-block:10px}.section-heading h2{font-size:1.95rem}.showcase-nav{gap:8px}.showcase-tabs{padding-bottom:0}.showcase-arrows button{width:40px;height:40px}.slide-copy h3{font-size:1.8rem}.slide-kicker{letter-spacing:.025em}.slide-copy small{font-size:.75rem}.slide-image-note{padding:4px 7px}.about{display:grid;grid-template-columns:85px 1fr;gap:18px;align-items:start}.portrait{height:112px;max-height:112px;border-radius:9px}.portrait-caption{display:none}.portrait:after{display:none}.portrait img{object-position:center 15%}.about-copy .eyebrow{font-size:.75rem;letter-spacing:.025em;margin-bottom:10px}.about-copy h2{font-size:1.65rem}.about-copy>p:not(.eyebrow){font-size:.94rem}.about-copy .text-link{font-size:.875rem}.skill-tags span{font-size:.75rem;padding:4px 7px}.trust-strip{font-size:.8rem}.quote-copy h2{font-size:1.95rem}.form-row{grid-template-columns:1fr}.footer-main{gap:22px}.expertise-inner{gap:10px 19px}}
 
 </style>
+
+<style>
+/* Carrossel interativo das demonstrações */
+.projects-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin:-8px 0 18px;
+}
+.projects-status{
+  color:#57667b;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.projects-arrows{
+  display:flex;
+  gap:10px;
+}
+.projects-arrows button{
+  width:46px;
+  height:46px;
+  border:1px solid #b9c9db;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  color:#16304e;
+  font-size:1.2rem;
+  transition:background .2s,border-color .2s,color .2s,transform .2s;
+}
+.projects-arrows button:hover{
+  background:#287bff;
+  border-color:#287bff;
+  color:#fff;
+}
+.projects-arrows button:active{transform:scale(.96)}
+.projects{
+  display:flex !important;
+  gap:22px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  overscroll-behavior-inline:contain;
+  scrollbar-width:none;
+  cursor:grab;
+  touch-action:pan-y;
+  padding:2px 0 14px;
+  user-select:none;
+}
+.projects::-webkit-scrollbar{display:none}
+.projects.dragging{
+  cursor:grabbing;
+  scroll-snap-type:none;
+  scroll-behavior:auto;
+}
+.projects .project{
+  flex:0 0 min(880px,calc(100% - 90px));
+  scroll-snap-align:start;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-width:0;
+  transform:none;
+}
+.projects .project:hover{
+  transform:none;
+  box-shadow:0 15px 35px #263f5415;
+}
+.projects .project:focus-visible{
+  outline:3px solid #287bff;
+  outline-offset:4px;
+}
+.projects .project-art{
+  height:auto;
+  min-height:310px;
+  border-bottom:0;
+}
+.projects .project-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:310px;
+}
+.projects .project-action{
+  align-self:flex-start;
+}
+@media(max-width:760px){
+  .projects-toolbar{margin-top:0}
+  .projects-status{font-size:.72rem}
+  .projects-arrows button{width:42px;height:42px}
+  .projects{gap:14px;padding-bottom:8px}
+  .projects .project{
+    flex-basis:calc(100% - 26px);
+    display:block;
+  }
+  .projects .project-art{
+    display:block !important;
+    min-height:220px;
+    height:220px;
+  }
+  .projects .project-copy{
+    min-height:0;
+    padding:22px;
+  }
+}
+@media(max-width:420px){
+  .projects .project{flex-basis:calc(100% - 12px)}
+  .projects .project-art{height:205px;min-height:205px;padding:20px}
+  .projects-arrows button{width:40px;height:40px}
+}
+@media(prefers-reduced-motion:reduce){
+  .projects{scroll-behavior:auto}
+}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -441,7 +558,13 @@
 <article class="service" data-audience="pessoal"><div class="service-top"><span class="service-icon">◇</span><span class="tag">SEGURANÇA</span></div><h3>Segurança digital</h3><p>Cuide do seu computador e navegue com mais tranquilidade.</p><ul><li>Remoção de ameaças e programas indesejados</li><li>Instalação de antivírus confiável</li><li>Configurações para navegação mais segura</li></ul><div class="service-bottom"><div><span>A partir de</span><strong>R$ 70</strong><small>Antivírus gratuito; licença paga opcional</small></div><a aria-label="Solicitar segurança digital" data-service="Segurança digital" href="#orcamento">↗</a></div></article>
 <article class="service" data-audience="empresa pessoal"><div class="service-top"><span class="service-icon">◎</span><span class="tag">ACOMPANHAMENTO</span></div><h3>Suporte personalizado</h3><p>Ajuda direta para resolver as demandas que surgem pelo caminho.</p><ul><li>Atendimento remoto ou presencial</li><li>Orientação clara, sem complicação</li><li>Pacotes mensais disponíveis</li></ul><div class="service-bottom"><div><span>Planos sob medida</span><strong>Vamos conversar</strong><small>Conforme sua necessidade</small></div><a aria-label="Solicitar suporte" data-service="Suporte personalizado" href="#orcamento">↗</a></div></article>
 </div></div></details></section>
-<section class="portfolio section" id="portfolio"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">02 / PLANILHAS &amp; AUTOMAÇÃO</p><h2>Planilhas &amp; automação.</h2></div><p>Experimente os painéis com dados fictícios.</p></div><div class="projects">
+<section class="portfolio section" id="portfolio"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">02 / PLANILHAS &amp; AUTOMAÇÃO</p><h2>Planilhas &amp; automação.</h2></div><p>Experimente os painéis com dados fictícios.</p></div><div class="projects-toolbar" aria-label="Navegação das demonstrações">
+  <span class="projects-status" id="projects-status">01 / 03 · Visão financeira</span>
+  <div class="projects-arrows">
+    <button id="projects-prev" type="button" aria-label="Demonstração anterior">←</button>
+    <button id="projects-next" type="button" aria-label="Próxima demonstração">→</button>
+  </div>
+</div><div class="projects" id="projects-rail" tabindex="0" aria-label="Demonstrações de planilhas e automação. Arraste horizontalmente para navegar.">
 <button class="project" data-demo="financeiro"><div class="project-art finance-art"><div class="art-head"><span>VISÃO FINANCEIRA</span><span>DEMO</span></div><span class="art-label">Saldo do período</span><strong class="art-value">R$ 8.450<span>,00</span></strong><div aria-hidden="true" class="bars"><i style="--h:38%"></i><i style="--h:56%"></i><i style="--h:43%"></i><i style="--h:68%"></i><i style="--h:59%"></i><i style="--h:88%"></i></div><div class="art-foot"><span>JAN</span><span>JUN</span></div></div><div class="project-copy"><span class="project-type">FINANÇAS / DASHBOARD</span><h3>Seu financeiro, organizado. <span>↗</span></h3><p>Receitas, despesas e saldo em uma visão simples.</p><span class="project-action">Experimentar painel</span></div></button>
 <button class="project" data-demo="producao"><div class="project-art production-art"><div class="art-head"><span>PAINEL DE PRODUÇÃO</span><span>DEMO</span></div><div class="production-numbers"><div><span class="art-label">Produção do dia</span><strong class="art-value">12.480</strong></div><span class="production-badge">124,8%<small>da meta</small></span></div><div class="progress-track"><span></span></div><div class="art-foot"><span>Meta: 10.000 un.</span><span>+2.480 un.</span></div><div class="small-grid"><span>Produção organizada</span><span>Indicadores claros</span></div></div><div class="project-copy"><span class="project-type">OPERAÇÃO / INDICADORES</span><h3>Produção sob controle. <span>↗</span></h3><p>Acompanhe o realizado e compare com a meta.</p><span class="project-action">Explorar indicadores</span></div></button>
 <button class="project" data-demo="automacao"><div class="project-art automation-art"><div class="art-head"><span>AUTOMAÇÃO DE PLANILHAS</span><span>DEMO</span></div><div class="sheet-row muted-row"><span>DESCRIÇÃO</span><span>VALOR</span><span>STATUS</span></div><div class="sheet-row"><span>Venda 001</span><span>R$ 850</span><span class="status">Validado</span></div><div class="sheet-row"><span>Venda 002</span><span>R$ 420</span><span class="status">Validado</span></div><div class="sheet-row"><span>Venda 003</span><span>R$ 630</span><span class="status">Validado</span></div><div class="automation-result"><span>Relatório consolidado</span><strong>R$ 1.900</strong></div></div><div class="project-copy"><span class="project-type">ROTINAS / AUTOMAÇÃO</span><h3>Menos tarefas repetitivas. <span>↗</span></h3><p>Organize registros e consolide informações.</p><span class="project-action">Simular automação</span></div></button>
@@ -464,8 +587,7 @@ $('#mobile-nav').addEventListener('click',e=>{if(e.target.closest('a')){menu.set
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#mobile-nav').hidden){menu.click();menu.focus()}});
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});document.querySelectorAll('[data-audience]').forEach(card=>card.hidden=button.dataset.filter!=='all'&&!card.dataset.audience.split(' ').includes(button.dataset.filter))}));
 document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',()=>{$('#service').value=a.dataset.service}));
-$('#quote-form').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;const details=$('#details').value.trim();const msg=['Olá, Lucas! Vim pelo site da L.E e gostaria de um orçamento.','',`Serviço: ${$('#service').value}`,`Finalidade: ${$('#audience').value}`,`Atendimento: ${$('#format').value}`,details?`Detalhes: ${details}`:''].filter((v,i)=>v||i===1).join('
-');window.location.assign(wa(msg))});
+$('#quote-form').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;const details=$('#details').value.trim();const msg=['Olá, Lucas! Vim pelo site da L.E e gostaria de um orçamento.','',`Serviço: ${$('#service').value}`,`Finalidade: ${$('#audience').value}`,`Atendimento: ${$('#format').value}`,details?`Detalhes: ${details}`:''].filter((v,i)=>v||i===1).join('\\n');window.location.assign(wa(msg))});
 const dialog=$('#demo-dialog');let currentDemo='financeiro';
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
 document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}}));
@@ -503,4 +625,113 @@ $('#demo-quote').addEventListener('click',()=>{dialog.close();$('#service').valu
 })();
 
 </script>
+
+<script>
+(()=>{
+  const rail=document.getElementById('projects-rail');
+  if(!rail||rail.dataset.carouselReady==='true') return;
+  rail.dataset.carouselReady='true';
+
+  const cards=[...rail.querySelectorAll('.project')];
+  const prev=document.getElementById('projects-prev');
+  const next=document.getElementById('projects-next');
+  const status=document.getElementById('projects-status');
+  const labels=['Visão financeira','Painel de produção','Automação de planilhas'];
+  let current=0;
+  let drag=null;
+  let suppressClick=false;
+  let scrollTimer=0;
+
+  const cardLeft=index=>{
+    const card=cards[index];
+    return card.offsetLeft-rail.offsetLeft;
+  };
+
+  const setStatus=index=>{
+    current=Math.max(0,Math.min(cards.length-1,index));
+    if(status) status.textContent=`0${current+1} / 0${cards.length} · ${labels[current]||''}`;
+  };
+
+  const nearestIndex=()=>{
+    const left=rail.scrollLeft;
+    let best=0,dist=Infinity;
+    cards.forEach((card,i)=>{
+      const d=Math.abs(cardLeft(i)-left);
+      if(d<dist){dist=d;best=i}
+    });
+    return best;
+  };
+
+  const go=index=>{
+    const i=(index+cards.length)%cards.length;
+    setStatus(i);
+    rail.scrollTo({
+      left:cardLeft(i),
+      behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'
+    });
+  };
+
+  prev?.addEventListener('click',()=>go(current-1));
+  next?.addEventListener('click',()=>go(current+1));
+
+  rail.addEventListener('keydown',e=>{
+    if(e.target!==rail) return;
+    if(e.key==='ArrowRight'){e.preventDefault();go(current+1)}
+    else if(e.key==='ArrowLeft'){e.preventDefault();go(current-1)}
+    else if(e.key==='Home'){e.preventDefault();go(0)}
+    else if(e.key==='End'){e.preventDefault();go(cards.length-1)}
+  });
+
+  rail.addEventListener('scroll',()=>{
+    clearTimeout(scrollTimer);
+    scrollTimer=setTimeout(()=>setStatus(nearestIndex()),70);
+  },{passive:true});
+
+  rail.addEventListener('pointerdown',e=>{
+    if(e.button!==0) return;
+    drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:rail.scrollLeft,moved:false};
+    rail.setPointerCapture?.(e.pointerId);
+  });
+
+  rail.addEventListener('pointermove',e=>{
+    if(!drag||e.pointerId!==drag.id) return;
+    const dx=e.clientX-drag.x;
+    const dy=e.clientY-drag.y;
+    if(!drag.moved && Math.abs(dx)>7 && Math.abs(dx)>Math.abs(dy)){
+      drag.moved=true;
+      rail.classList.add('dragging');
+    }
+    if(drag.moved){
+      e.preventDefault();
+      rail.scrollLeft=drag.start-dx;
+    }
+  });
+
+  const endDrag=e=>{
+    if(!drag||e.pointerId!==drag.id) return;
+    const moved=drag.moved;
+    rail.releasePointerCapture?.(e.pointerId);
+    drag=null;
+    rail.classList.remove('dragging');
+    if(moved){
+      suppressClick=true;
+      const target=nearestIndex();
+      requestAnimationFrame(()=>go(target));
+      setTimeout(()=>{suppressClick=false},80);
+    }
+  };
+  rail.addEventListener('pointerup',endDrag);
+  rail.addEventListener('pointercancel',endDrag);
+
+  rail.addEventListener('click',e=>{
+    if(suppressClick){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  },true);
+
+  setStatus(0);
+})();
+</script>
+
 </body></html>
