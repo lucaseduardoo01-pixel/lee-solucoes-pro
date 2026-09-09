@@ -900,6 +900,155 @@
 }
 </style>
 
+
+<style id="mobile-about-premium-final">
+/* =========================================================
+   MOBILE FINAL - mantém a identidade do desktop sem "buracos"
+   ========================================================= */
+@media (max-width:560px){
+
+  /* SOBRE: no mobile vira uma composição vertical premium,
+     preservando a foto grande do desktop em vez de miniatura. */
+  #sobre.section{
+    padding-top:46px !important;
+    padding-bottom:40px !important;
+  }
+
+  #sobre.about{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:24px !important;
+    align-items:start !important;
+  }
+
+  #sobre .portrait{
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+    aspect-ratio:16 / 10 !important;
+    border-radius:14px !important;
+    align-self:auto !important;
+    overflow:hidden !important;
+  }
+
+  #sobre .portrait img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center 28% !important;
+  }
+
+  #sobre .portrait:after{
+    inset:52% 0 0 !important;
+  }
+
+  #sobre .portrait-caption{
+    left:20px !important;
+    bottom:18px !important;
+  }
+
+  #sobre .portrait-caption strong{
+    font-size:1.18rem !important;
+  }
+
+  #sobre .portrait-caption span{
+    font-size:.76rem !important;
+  }
+
+  #sobre .about-copy{
+    width:100% !important;
+    padding:0 !important;
+  }
+
+  #sobre .about-copy .eyebrow{
+    margin:0 0 12px !important;
+    font-size:.72rem !important;
+    letter-spacing:.08em !important;
+  }
+
+  #sobre .about-copy h2{
+    font-size:2.08rem !important;
+    line-height:1.08 !important;
+    margin:0 0 16px !important;
+  }
+
+  #sobre .about-copy>p:not(.eyebrow){
+    font-size:.98rem !important;
+    line-height:1.72 !important;
+    margin:0 0 18px !important;
+    max-width:none !important;
+  }
+
+  #sobre .skill-tags{
+    margin:18px 0 20px !important;
+    gap:8px !important;
+  }
+
+  #sobre .skill-tags span{
+    font-size:.76rem !important;
+    padding:6px 10px !important;
+  }
+
+  #sobre .about-copy .text-link{
+    display:inline-flex !important;
+    align-items:center !important;
+    gap:10px !important;
+    font-size:.9rem !important;
+    line-height:1.4 !important;
+    margin:0 !important;
+  }
+
+  /* PROCESSO: aproxima da seção "Sobre" e mantém ritmo de leitura */
+  .process.section{
+    padding-top:34px !important;
+    padding-bottom:52px !important;
+  }
+
+  .process .eyebrow{
+    margin-bottom:14px !important;
+  }
+
+  .process h2{
+    margin-bottom:28px !important;
+  }
+
+  .steps{
+    gap:22px !important;
+  }
+
+  .steps article{
+    padding-top:16px !important;
+  }
+
+  /* Evita excesso de ar entre grandes seções no celular */
+  .portfolio.section{
+    padding-bottom:48px !important;
+  }
+}
+
+@media (max-width:390px){
+  #sobre.section{
+    padding-top:40px !important;
+  }
+
+  #sobre .portrait{
+    aspect-ratio:4 / 3 !important;
+  }
+
+  #sobre .about-copy h2{
+    font-size:1.9rem !important;
+  }
+
+  #sobre .about-copy>p:not(.eyebrow){
+    font-size:.94rem !important;
+  }
+
+  .process.section{
+    padding-top:28px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
