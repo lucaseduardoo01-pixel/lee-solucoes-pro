@@ -688,6 +688,50 @@
 }
 </style>
 
+
+<style id="mobile-ninja-centering-final">
+/* Ajuste final: no celular, os ninjas ficam centralizados como no desktop */
+@media (max-width: 760px){
+  .presenter-ninja{
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    bottom:32px !important;
+  }
+
+  .portfolio .project-ninja{
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    top:172px !important;
+    bottom:auto !important;
+  }
+
+  .portfolio .project:hover .project-ninja{
+    transform:translateX(-50%) translateY(-4px) !important;
+  }
+}
+
+@media (max-width: 480px){
+  .presenter-ninja{
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    bottom:40px !important;
+  }
+}
+
+@media (max-width: 420px){
+  .portfolio .project-ninja{
+    left:50% !important;
+    right:auto !important;
+    transform:translateX(-50%) !important;
+    top:160px !important;
+    bottom:auto !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
