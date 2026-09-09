@@ -689,131 +689,152 @@
 </style>
 
 
-<style id="mobile-ninja-centering-final">
-/* Ajuste final: no celular, os ninjas ficam centralizados como no desktop */
-@media (max-width: 760px){
-  .presenter-ninja{
-    left:50% !important;
-    right:auto !important;
-    transform:translateX(-50%) !important;
-    bottom:32px !important;
-  }
-
-  .portfolio .project-ninja{
-    left:50% !important;
-    right:auto !important;
-    transform:translateX(-50%) !important;
-    top:172px !important;
-    bottom:auto !important;
-  }
-
-  .portfolio .project:hover .project-ninja{
-    transform:translateX(-50%) translateY(-4px) !important;
-  }
-}
-
-@media (max-width: 480px){
-  .presenter-ninja{
-    left:50% !important;
-    right:auto !important;
-    transform:translateX(-50%) !important;
-    bottom:40px !important;
-  }
-}
-
-@media (max-width: 420px){
-  .portfolio .project-ninja{
-    left:50% !important;
-    right:auto !important;
-    transform:translateX(-50%) !important;
-    top:160px !important;
-    bottom:auto !important;
-  }
-}
-</style>
 
 
-<style id="responsive-ninja-layout-final">
-/* ===== Ajuste final dos ninjas: espaço reservado, sem cobrir conteúdo ===== */
 
-/* PLANILHAS - desktop: ninja no vão central entre gráfico e texto */
+
+
+
+<style id="ninja-layout-definitivo">
+/* =========================
+   NINJAS - LAYOUT DEFINITIVO
+   ========================= */
+
+/* ---------- PLANILHAS / DESKTOP ---------- */
 .portfolio .project{
-  position:relative;
-  overflow:hidden;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 112px minmax(0,1fr) !important;
+  grid-template-rows:1fr !important;
+  align-items:stretch !important;
+  position:relative !important;
+  overflow:hidden !important;
 }
+
+.portfolio .project-art{
+  grid-column:1 !important;
+  grid-row:1 !important;
+  min-width:0 !important;
+  padding:24px !important;
+}
+
 .portfolio .project-ninja{
-  top:50% !important;
-  bottom:auto !important;
-  left:50% !important;
-  right:auto !important;
-  width:104px !important;
-  transform:translate(-50%,-50%) !important;
+  grid-column:2 !important;
+  grid-row:1 !important;
+  align-self:end !important;
+  justify-self:center !important;
+  position:static !important;
+  width:96px !important;
+  height:auto !important;
+  margin:0 0 10px !important;
+  transform:none !important;
   animation:none !important;
+  pointer-events:none !important;
+  z-index:2 !important;
+  filter:drop-shadow(0 10px 12px rgba(0,0,0,.45)) !important;
 }
+
 .portfolio .project:hover .project-ninja{
-  transform:translate(-50%,-50%) !important;
+  transform:none !important;
 }
 
-/* cria um "corredor" limpo no centro para o ninja */
-@media (min-width:761px){
-  .portfolio .project-art{
-    padding-right:82px !important;
-  }
-  .portfolio .project-copy{
-    padding-left:82px !important;
-  }
+.portfolio .project-copy{
+  grid-column:3 !important;
+  grid-row:1 !important;
+  min-width:0 !important;
+  padding:25px !important;
 }
 
-/* SERVIÇOS - mobile: cria uma faixa vazia entre texto e imagem */
+/* ---------- SERVIÇOS / MOBILE ---------- */
+/* O ninja vira uma linha própria ENTRE texto e imagem. */
 @media (max-width:760px){
   .service-slide{
-    position:relative;
-    grid-template-rows:auto 210px !important;
-    row-gap:86px !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto 92px auto !important;
+    row-gap:0 !important;
+    align-items:stretch !important;
   }
 
-  .slide-copy{
-    padding-bottom:24px !important;
+  .service-slide .slide-copy{
+    grid-column:1 !important;
+    grid-row:1 !important;
   }
 
-  /* PLANILHAS - mobile: ninja em faixa própria entre painel e descrição */
+  .service-slide .service-ninja-slot{
+    grid-column:1 !important;
+    grid-row:2 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:92px !important;
+    background:linear-gradient(145deg,#142842,#0d1828) !important;
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+  .service-slide .service-ninja-slot .presenter-ninja{
+    position:static !important;
+    width:82px !important;
+    height:auto !important;
+    margin:0 !important;
+    transform:none !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    filter:drop-shadow(0 9px 10px rgba(0,0,0,.45)) !important;
+  }
+
+  .service-slide .slide-image{
+    grid-column:1 !important;
+    grid-row:3 !important;
+    margin:0 !important;
+  }
+
+  /* ---------- PLANILHAS / MOBILE ---------- */
   .portfolio .project{
-    display:block !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto 90px auto !important;
     background:#0d1828 !important;
   }
 
   .portfolio .project-art{
-    padding-right:24px !important;
-    margin-bottom:0 !important;
-  }
-
-  .portfolio .project-copy{
-    margin-top:86px !important;
-    padding-left:24px !important;
-    padding-right:24px !important;
+    grid-column:1 !important;
+    grid-row:1 !important;
+    min-height:220px !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:24px !important;
   }
 
   .portfolio .project-ninja{
-    width:86px !important;
-    top:226px !important;
-    left:50% !important;
-    right:auto !important;
-    bottom:auto !important;
-    transform:translateX(-50%) !important;
+    grid-column:1 !important;
+    grid-row:2 !important;
+    align-self:center !important;
+    justify-self:center !important;
+    position:static !important;
+    width:80px !important;
+    margin:0 !important;
+    transform:none !important;
   }
 
-  .portfolio .project:hover .project-ninja{
-    transform:translateX(-50%) !important;
+  .portfolio .project-copy{
+    grid-column:1 !important;
+    grid-row:3 !important;
+    margin:0 !important;
+    padding:24px !important;
+    min-height:0 !important;
   }
 
-  /* WhatsApp menor para não tampar conteúdo no celular */
+  /* WhatsApp menor e menos invasivo */
   .floating-whatsapp{
+    right:10px !important;
+    bottom:10px !important;
     min-height:44px !important;
     padding:9px 13px !important;
     gap:7px !important;
-    font-size:.74rem !important;
-    right:10px !important;
-    bottom:10px !important;
+    font-size:.76rem !important;
   }
   .floating-whatsapp span{
     font-size:1rem !important;
@@ -821,12 +842,24 @@
 }
 
 @media (max-width:420px){
-  .portfolio .project-copy{
-    margin-top:78px !important;
+  .service-slide{
+    grid-template-rows:auto 84px auto !important;
   }
+
+  .service-slide .service-ninja-slot{
+    min-height:84px !important;
+  }
+
+  .service-slide .service-ninja-slot .presenter-ninja{
+    width:74px !important;
+  }
+
+  .portfolio .project{
+    grid-template-rows:auto 82px auto !important;
+  }
+
   .portfolio .project-ninja{
-    width:78px !important;
-    top:211px !important;
+    width:72px !important;
   }
 }
 </style>
@@ -1031,65 +1064,75 @@ $('#demo-quote').addEventListener('click',()=>{dialog.close();$('#service').valu
 </script>
 
 
-<script id="responsive-service-ninja-final">
+
+
+
+<script id="service-ninja-slot-definitivo">
 (function(){
   const viewport = document.getElementById('showcase-window');
   const ninja = viewport && viewport.querySelector('.presenter-ninja');
-  if(!viewport || !ninja) return;
+  const track = document.getElementById('showcase-track');
+  if(!viewport || !ninja || !track) return;
 
-  function activeSlide(){
-    return viewport.querySelector('.service-slide[aria-hidden="false"]') ||
-           viewport.querySelector('.service-slide');
+  const originalParent = viewport;
+
+  function getActiveSlide(){
+    return track.querySelector('.service-slide[aria-hidden="false"]') ||
+           track.querySelector('.service-slide');
   }
 
-  function placeNinja(){
-    if(window.innerWidth > 760){
-      ninja.style.top = '';
-      ninja.style.bottom = '';
-      ninja.style.left = '';
-      ninja.style.right = '';
-      ninja.style.transform = '';
-      return;
+  function ensureSlot(slide){
+    let slot = slide.querySelector('.service-ninja-slot');
+    if(!slot){
+      slot = document.createElement('div');
+      slot.className = 'service-ninja-slot';
+      slot.setAttribute('aria-hidden','true');
+
+      const image = slide.querySelector('.slide-image');
+      if(image){
+        slide.insertBefore(slot, image);
+      }else{
+        slide.appendChild(slot);
+      }
     }
+    return slot;
+  }
 
-    const slide = activeSlide();
-    const image = slide && slide.querySelector('.slide-image');
-    if(!slide || !image) return;
-
-    const viewportRect = viewport.getBoundingClientRect();
-    const imageRect = image.getBoundingClientRect();
-    const ninjaH = ninja.getBoundingClientRect().height || 83;
-
-    /* centro da faixa vazia criada entre texto e imagem */
-    const top = (imageRect.top - viewportRect.top) - (86 / 2) - (ninjaH / 2);
-
-    ninja.style.top = Math.max(8, top) + 'px';
-    ninja.style.bottom = 'auto';
-    ninja.style.left = '50%';
-    ninja.style.right = 'auto';
-    ninja.style.transform = 'translateX(-50%)';
+  function place(){
+    if(window.innerWidth <= 760){
+      const slide = getActiveSlide();
+      if(!slide) return;
+      const slot = ensureSlot(slide);
+      if(ninja.parentElement !== slot){
+        slot.appendChild(ninja);
+      }
+    }else{
+      if(ninja.parentElement !== originalParent){
+        originalParent.appendChild(ninja);
+      }
+      ninja.removeAttribute('style');
+    }
   }
 
   function schedule(){
-    requestAnimationFrame(function(){
-      requestAnimationFrame(placeNinja);
-    });
+    requestAnimationFrame(place);
+    setTimeout(place, 80);
+    setTimeout(place, 450);
   }
 
   window.addEventListener('resize', schedule, {passive:true});
   window.addEventListener('load', schedule, {once:true});
 
   document.querySelectorAll('[data-slide], #slide-prev, #slide-next').forEach(function(el){
-    el.addEventListener('click', function(){
-      setTimeout(schedule, 30);
-      setTimeout(schedule, 450);
-    });
+    el.addEventListener('click', schedule);
   });
 
-  if('ResizeObserver' in window){
-    const ro = new ResizeObserver(schedule);
-    ro.observe(viewport);
-  }
+  const observer = new MutationObserver(schedule);
+  observer.observe(track, {
+    subtree:true,
+    attributes:true,
+    attributeFilter:['aria-hidden','style']
+  });
 
   schedule();
 })();
