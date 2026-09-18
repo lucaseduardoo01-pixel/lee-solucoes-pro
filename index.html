@@ -974,12 +974,20 @@
   }
 
   #sobre .portrait:after{
+    display:block !important;
     inset:52% 0 0 !important;
+    pointer-events:none;
   }
 
   #sobre .portrait-caption{
+    display:block !important;
+    position:absolute;
     left:20px !important;
+    right:20px;
     bottom:18px !important;
+    z-index:1;
+    color:#f4f7fc !important;
+    line-height:1.4;
   }
 
   #sobre .portrait-caption strong{
